@@ -1,20 +1,13 @@
-//importar o módulo express
-const express = require('express')
+const express = require ('express')
+const app = express ()
 
-//executar o módulo express
-const app = express()
+app.use(express.urlencoded({ extended: false}))
+app.use(express.static('./'))
 
-//definir a porta do servidor
-const porta = 3030 || process.env.PORT
+const consign = require('consign')
 
-//configurar a localização da pasta assets (css, imagens,js)
-app.use(express.static("./assets")
-)
+consign(). include('./routes').into(app)
 
-//carregar o módulo consign
-const consign=require('consign')
-//incluir a pasta routes no express
-consign().include('./routes').into(app)
+const porta = process.env.PORT || 4040
 
-//exportar as variáveis app e porta
-module.exports = {app,porta}
+module.exports = { app, porta }

@@ -5,10 +5,9 @@ const modelo = mongoose.Schema({
     sobrenome: String,
     email: String,
     mensagem: String,
-    enviado: { type: Date, default: Date.now}
-
+    enviado:{type: Date, deafult: Date.now}
 })
 
 const mensagem = mongoose.model('mensagem', modelo)
 
-module.exports = mensagem
+module.exports = mensagem 
