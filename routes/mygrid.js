@@ -1,28 +1,34 @@
-module.exports = (app)=>{
+module.exports = (app) =>{
 
-    var conexao = require ('../config/database')
-    //importar o modelo mygrid
+    //Importar as operações do database
+    var conexao = require('../config/database')
+
+    //Importar o modelo mygrid
     var modelo = require('../models/mygrid')
 
-    //abrir o formulário mygrid.js
-    app.get('/mygrid', (req,res)=>{
-        //conectar com o database
+    //Abrir formulário mygrid.js
+    app.get('/mygrid',(req, res)=>{
+        //Conectar com database
         conexao()
-        //buscar todos os documentos da coleção mygrid
+        
+        //Buscar todos os documentos da coleçao mygrid
         modelo.find()
         .then((modelo)=>{
             res.render('mygrid.ejs', {dados:modelo})
-            .catch(()=>{
-                res.render('mygrid.ejs')
-            })
         })
+        .catch(()=>{
+            res.render('mygrid.ejs')
+        })
+
+        
     })
 
-
-    app.post('/mygrid', (req,res)=>{
-        //conectar com o database
+    //Gravar as imformações commo formulário
+    app.post('/mygrid', (req, res)=>{
+        //Conectar com o datebase
         conexao()
-        //gravar o documento na coleção mygrid
+
+        //Gravar o documento na coleção mygrid
         var documento = new modelo({
             titulo:req.body.titulo,
             texto:req.body.texto
@@ -31,7 +37,7 @@ module.exports = (app)=>{
             res.redirect('/mygrid')
         })
         .catch(()=>{
-            res.send('Não foi possível gravar os dados no DB')
+            res.send("Não foi possivel gravar os dados no database")
         })
     })
 }

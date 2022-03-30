@@ -1,10 +1,8 @@
 const mongoose = require('mongoose')
 
-const conexao = async() =>{
-    //conexao local
-    //var bdlocal = await mongoose.connect('mongodb://localhost/SITE1)'
-    //conexao atlas
-    var atlas = await mongoose.connect('mongodb+srv://userAdmin:thi020206@cluster0.s3hds.mongodb.net/test')
+const conexao = async() => {
+
+var atlas = await mongoose.connect('mongodb+srv://userAdmin:matheus2006@fiaptecnico.p5s1m.mongodb.net/test')
 }
 
 module.exports = conexao

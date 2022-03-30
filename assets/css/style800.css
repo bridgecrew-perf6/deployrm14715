@@ -1,37 +1,39 @@
-.menu {
-    bottom: 0; text-align: center;
+.menu{
+    bottom: 0;
+    text-align: center;
 }
 
 .menu-content, .menu-content ul{
-    flex-direction: column; justify-content: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .menu-content{
     height: 100vh;
 }
 
-.menu {
+.menu{
     display: none;
 }
 
 .close-menu-label::after{
-    content: '≡';
+    content: '=';
     position: fixed;
     z-index: 2;
     top: 2rem;
     right: 2rem;
     background: #0a1128;
-    color: #FFFFFF;
+    color: #fff;
     font-size: 3rem;
     line-height: 3rem;
     width: 3rem;
     height: 3rem;
     text-align: center;
-    padding: 0.5;
+    padding: .5rem;
     cursor: pointer;
 }
 
-.close-menu:checked~.menu {
+.close-menu:checked~.menu{
     display: block;
 }
 
@@ -39,7 +41,7 @@
     content: 'x';
 }
 
-.menu-spacing {
+.menu-spacing{
     display: none;
 }
 

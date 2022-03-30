@@ -1,12 +1,11 @@
 const mongoose = require('mongoose')
 
 const modelo = mongoose.Schema({
-    titulo: String,
-    texto: String,
+    arquivo: String,
     enviado: { type: Date, default: Date.now}
 
 })
 
-const mygrid = mongoose.model('mygrid', modelo)
+const gallery = mongoose.model('gallery', modelo)
 
-module.exports = mygrid
+module.exports = gallery
